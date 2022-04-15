@@ -9,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
+  loggedinUser: string;
   constructor(private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
   loggedIn() {
+    this.loggedinUser = localStorage.getItem('token');
+
     return localStorage.getItem('token');
   }
 
@@ -22,21 +25,4 @@ export class NavBarComponent implements OnInit {
     localStorage.removeItem('token');
     this.alertify.success('Successfully logged out!!');
   }
-
-  items: string[] = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
-
-  onHidden(): void {
-    console.log('Dropdown is hidden');
-  }
-  onShown(): void {
-    console.log('Dropdown is shown');
-  }
-  isOpenChange(): void {
-    console.log('Dropdown state is changed');
-  }
-
 }
