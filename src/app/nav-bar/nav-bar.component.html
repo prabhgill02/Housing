@@ -13,13 +13,28 @@
           <a class="nav-link" routerLinkActive="active" routerLink="/rent-property">Rent</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="/add-property">List Propery(Free)</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/add-property">List Property(Free)</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
+
+
+      <div>
+        <ul class="nav navbar-nav">
+          <li *ngIf="!loggedIn()" class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="user/register" >Register</a>
+
+          </li>
+          <li *ngIf="!loggedIn()" class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="user/login">Login</a>
+          </li>
+
+            <li *ngIf="loggedIn()" class="nav-item">
+            <a class="nav-link" (click)="onLogout()">Logout</a>
+          </li>
+
+        </ul>
+      </div>
   </div>
 </nav>
+
